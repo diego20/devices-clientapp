@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Devices List Project - Velozient
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -8,39 +8,42 @@ In the project directory, you can run:
 
 ### `npm start`
 
+**The app is set to run on port 3001 to free port 3000 to the server.**
+
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+All other CRA usual scripts are available as well.
 
-### `npm test`
+## Project design
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app was developed using TypeScript - React for better development experience and scaling.
 
-### `npm run build`
+### Styling
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**CSS modules and vanilla CSS were used** for every visual aspect of the app. No 3rd-party tools were used.\
+Usage of CSS variables for colors to keep consistency across the app.\
+The app has a **breakpoint at 768px**. The app is fully responsive.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Code Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Relevant files: \
+`App.tsx` Contains all app. Attaches styling to document body when modal is open.\
+`AppContainer.tsx` Contains all functionality related to device management.\
+`deviceModal.tsx` Is the create / update modal. Is fired from AppContainer and attached to the div root using a **React Portal**.\
+`Api.ts` Contains all API related operations.
 
-### `npm run eject`
+### Error Management
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+In the create/update modal, a device can't be registered if:
+- A field is empty
+- HDD Capacity has a non numeric value
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+An alert will be triggered if this happens.\
+If there is any issue when fetching API data, an alert will with an error will be triggered.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## App behavior
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Users can filter and sort devices.\
+Any device updated / created will immediately be filtered and sorted.\
+The modal can only be closed through the action buttons inside by arbitrary UX consideration.
