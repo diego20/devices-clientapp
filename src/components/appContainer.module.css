@@ -1,0 +1,24 @@
+.container {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 8px;
+  margin: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+}
+
+.options-bar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}

@@ -1,0 +1,41 @@
+.row-header-height {
+  height: 48px;
+}
+
+.row-body-height {
+  height: 32px;
+}
+
+.table-container {
+  overflow: auto;
+  width: 100%;
+}
+
+table {
+  table-layout: fixed;
+  border-spacing: 8px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.edit-icon {
+  width: 24px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.edit-icon:hover {
+  fill: var(--gray-darker);
+}
+
+.trash-icon {
+  width: 22px;
+  cursor: pointer;
+  fill: var(--danger-red);
+}
+
+.trash-icon:hover {
+  fill: var(--dark-red);
+}
